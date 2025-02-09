@@ -11,7 +11,16 @@ if (!process.env.API_BASE_URL) {
 const API_BASE_URL = process.env.API_BASE_URL;
 
 const app = express();
-app.use(cors());
+
+const corsOptions = {
+  origin:
+    process.env.NODE_ENV === "production"
+      ? "https://proyecto-11-react-basics-verifywebgreen.vercel.app/"
+      : "http://localhost:5173",
+  methods: ["GET"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+};
+app.use(cors(corsOptions));
 
 app.get("/api/site", async (req, res) => {
   const url = req.query.url;
