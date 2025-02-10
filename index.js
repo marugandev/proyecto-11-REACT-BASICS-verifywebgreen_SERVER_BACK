@@ -15,7 +15,7 @@ const app = express();
 const corsOptions = {
   origin:
     process.env.NODE_ENV === "production"
-      ? "https://proyecto-11-react-basics-verifywebgreen.vercel.app"
+      ? "https://proyecto-11-react-basics-verifywebgreen.vercel.app/search"
       : "http://localhost:5173",
   methods: ["GET"],
   allowedHeaders: ["Content-Type", "Authorization"]
