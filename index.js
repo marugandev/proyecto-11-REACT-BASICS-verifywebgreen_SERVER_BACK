@@ -22,8 +22,6 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-app.use(express.static(path.join(__dirname, "build")));
-
 app.get("/", (req, res) => {
   res.send("Server Backend is up and running!");
 });
@@ -40,10 +38,6 @@ app.get("/site", async (req, res) => {
   } catch (err) {
     res.status(500).json({ error: "Error fetching data" });
   }
-});
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
 app.listen(PORT, () => {
