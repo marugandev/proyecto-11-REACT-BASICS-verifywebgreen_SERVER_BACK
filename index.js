@@ -22,6 +22,10 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
+app.get("/", (req, res) => {
+  res.send("Server Backend is up and running!");
+});
+
 app.get("/site", async (req, res) => {
   const url = req.query.url;
 
