@@ -15,14 +15,14 @@ const app = express();
 const corsOptions = {
   origin:
     process.env.NODE_ENV === "production"
-      ? "https://proyecto-11-react-basics-verifywebgreen.vercel.app/"
+      ? "https://proyecto-11-react-basics-verifywebgreen.vercel.app"
       : "http://localhost:5173",
   methods: ["GET"],
   allowedHeaders: ["Content-Type", "Authorization"]
 };
 app.use(cors(corsOptions));
 
-app.get("/api/site", async (req, res) => {
+app.get("/site", async (req, res) => {
   const url = req.query.url;
 
   if (!url) return res.status(400).json({ error: "URL is required" });
